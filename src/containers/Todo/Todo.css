@@ -1,0 +1,13 @@
+.todo_container {
+	width: 400px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 20px #4a4848a6;
+	background: #fff;
+	padding: 15px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.todo_container * {
+	color: #333;
+}

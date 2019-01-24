@@ -1,3 +1,10 @@
+body {
+	background: #0089ff94;
+	font-family: Arial, sans-serif;
+}
+
 h1 {
   text-align: center;
+  color:#fff;
+  font-weight: normal;
 }

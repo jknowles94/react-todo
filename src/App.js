@@ -12,7 +12,6 @@ class App extends Component {
           <li>Get a list of current todo items from placeholder API</li>
           <li>Ability to set list item as completed</li>
           <li>Ability to delete list items</li>
-          <li>Edit existing list items</li>
           <li>Add animations to the different handlers</li>
         </ul>
         <Todo></Todo>
