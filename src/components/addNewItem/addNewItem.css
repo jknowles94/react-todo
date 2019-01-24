@@ -5,8 +5,8 @@
 	border-radius: 50%;
 	text-align: center;
 	color: #fff;
-	width: 75px;
-	height: 75px;
+	width: 65px;
+	height: 65px;
 	box-shadow: 0px 4px 15px #333333a1;
 	left: 0;
 	right: 0;
@@ -17,13 +17,13 @@
 .addNewItem span {
 	color: #fff;
 	font-size: 55px;
-	line-height: 1.35;
+	line-height: 1.2;
 	display: block;
 	transition: all 500ms;
 }
 
 .addNewItem:hover {
-	transform: scale(1.08);
+	transform: scale(1.05);
 }
 
 .addNewItem:hover span {
