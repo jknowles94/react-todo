@@ -1,3 +1,5 @@
 .list_container {
-	max-height: 300px;
+	/*max-height: 400px;
+	overflow-y: scroll;
+	overflow-x: visible;*/
 }
