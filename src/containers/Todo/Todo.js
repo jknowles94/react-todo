@@ -38,7 +38,7 @@ class Todo extends Component {
 
 	async deleteHandler(id) {
 		try {
-			const response = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+			await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
 			let todos = [...this.state.todos];
 			const newTodo = todos.filter(el => el.id !== id);
 			this.setState({todos: newTodo});
