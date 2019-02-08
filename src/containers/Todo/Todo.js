@@ -20,8 +20,12 @@ class Todo extends Component {
 	}
 
 	async addTodoHandler(newItem) {
+		const {title, completed} = newItem
 		try {
-			const response = await axios.post('https://jsonplaceholder.typicode.com/todos', newItem);
+			const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+				title,
+				completed
+			});
 			const data = await response.data;
 			const newTodoList = [...this.state.todos, data];
 			this.setState({todos: newTodoList});
@@ -31,8 +35,9 @@ class Todo extends Component {
 	}
 
 	addNewItemHandler = () => {
+		let title = prompt("Please enter the task?");
 		const newTodo = {
-			title: "New test todo",
+			title: title,
 			completed: false
 		};
 		this.addTodoHandler(newTodo);
