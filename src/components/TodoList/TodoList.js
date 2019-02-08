@@ -3,15 +3,16 @@ import './TodoList.css';
 import ListItem from './ListItem/ListItem';
 
 const TodoList = (props) => {
+	let listOfTodos = [];
+	
+	listOfTodos = props.todos.map((item) => {
+		return (
+			<ListItem key={item.id} done={item.completed}>{item.title}</ListItem>
+		);
+	});
   return (
   	<div className="list_container">
-  		<ListItem done={false}>Item 1</ListItem>
-  		<ListItem done={false}>Item 2</ListItem>
-  		<ListItem done={false}>Item 3</ListItem>
-  		<ListItem done={false}>Item 3</ListItem>
-  		<ListItem done={false}>Item 3</ListItem>
-  		<ListItem done={true}>Item 3</ListItem>
-  		<ListItem done={true}>Item 3</ListItem>
+  		{listOfTodos}
   	</div>
   );
 };

@@ -10,9 +10,32 @@ class Todo extends Component {
 	}
 	
 	async componentDidMount() {
-		const response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10');
-		const data = await response.data;
-		this.setState({todos: data});
+		try {
+			const response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5');
+			const data = await response.data;
+			this.setState({todos: data});
+		} catch (err){
+			console.log(err);
+		}
+	}
+
+	async addTodoHandler(newItem) {
+		try {
+			const response = await axios.post('https://jsonplaceholder.typicode.com/todos', newItem);
+			const data = await response.data;
+			const newTodoList = [...this.state.todos, data];
+			this.setState({todos: newTodoList});
+		} catch(err) {
+			console.log(err);
+		}
+	}
+
+	addNewItemHandler = () => {
+		const newTodo = {
+			title: "New test todo",
+			completed: false
+		};
+		this.addTodoHandler(newTodo);
 	}
 
   render() {
@@ -20,7 +43,7 @@ class Todo extends Component {
     	<div className="todo_container">
     		<h1>Tasks</h1>
     		<TodoList todos={this.state.todos}></TodoList>
-    		<AddNewItem></AddNewItem>
+    		<AddNewItem addItem={this.addNewItemHandler}></AddNewItem>
     	</div>
     );
   }

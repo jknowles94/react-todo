@@ -3,7 +3,7 @@ import './addNewItem.css';
 
 const AddNewItem = (props) => {
   return (
-  	<div className="addNewItem">
+  	<div className="addNewItem" onClick={props.addItem}>
   		<span>+</span>
   	</div>
   );

@@ -9,7 +9,6 @@ class App extends Component {
         <h1>Todo list</h1>
         <ul>
           <li>Ability to create new list items</li>
-          <li>Get a list of current todo items from placeholder API</li>
           <li>Ability to set list item as completed</li>
           <li>Ability to delete list items</li>
           <li>Add animations to the different handlers</li>
