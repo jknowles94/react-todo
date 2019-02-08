@@ -1,5 +1,6 @@
 .item {
-	display: block;
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	border-radius: 25px;
 	margin-bottom: 15px;
@@ -23,4 +24,9 @@
 	opacity: 0.4;
     text-decoration: line-through;
     cursor: auto;
+}
+
+.delete-bin {
+	width: 20px;
+	height: 20px;
 }

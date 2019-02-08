@@ -3,6 +3,8 @@ import './Todo.css';
 import TodoList from '../../components/TodoList/TodoList';
 import AddNewItem from '../../components/addNewItem/addNewItem';
 import axios from 'axios';
+import { resolve } from 'url';
+import { throws } from 'assert';
 
 class Todo extends Component {
 	state = {
@@ -34,6 +36,17 @@ class Todo extends Component {
 		}
 	}
 
+	async deleteHandler(id) {
+		try {
+			const response = await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+			let todos = [...this.state.todos];
+			const newTodo = todos.filter(el => el.id !== id);
+			this.setState({todos: newTodo});
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
 	addNewItemHandler = () => {
 		let title = prompt("Please enter the task?");
 		const newTodo = {
@@ -41,6 +54,10 @@ class Todo extends Component {
 			completed: false
 		};
 		this.addTodoHandler(newTodo);
+	}
+
+	deleteItemHandler = (id) => {
+		this.deleteHandler(id);
 	}
 
 	completedHandler = (id) => {
@@ -60,7 +77,7 @@ class Todo extends Component {
     return (
     	<div className="todo_container">
     		<h1>Tasks</h1>
-    		<TodoList todos={this.state.todos} completedHandler={this.completedHandler}></TodoList>
+    		<TodoList todos={this.state.todos} completedHandler={this.completedHandler} deletedHandler={this.deleteItemHandler}></TodoList>
     		<AddNewItem addItem={this.addNewItemHandler}></AddNewItem>
     	</div>
     );
